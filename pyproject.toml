@@ -6,13 +6,16 @@ build-backend = "setuptools.build_meta"
 name = "agent-starter-python"
 version = "1.0.0"
 description = "Simple voice AI assistant built with LiveKit Agents for Python"
-requires-python = ">=3.10, <3.15"
+requires-python = ">=3.12, <3.15"
 
 dependencies = [
     "ddgs>=9.16.0",
     "langchain-community>=0.4.2",
     "livekit-agents[google,images]~=1.5",
     "livekit-plugins-ai-coustics~=0.2",
+    "livekit-plugins-anthropic==1.8.2",
+    "livekit-plugins-browser~=0.4",
+    "playwright>=1.40.0",
     "python-dotenv",
 ]
 
