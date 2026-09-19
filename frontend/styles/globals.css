@@ -1,0 +1,153 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@source "../node_modules/streamdown/dist/index.js";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 1rem;
+  --plum-ink: #1b1426;
+  --midnight-moss: #121a18;
+  --ember-amber: #e8a33d;
+  --rose-copper: #d97b6c;
+  --moonlit-sage: #8fb8a0;
+  --enchanted-violet: #a78bfa;
+  --parchment: #f4e8d8;
+  --text-main: #f0e6da;
+
+  --background: #1b1426;
+  --foreground: #f0e6da;
+  --card: rgba(244, 232, 216, 0.05);
+  --card-foreground: #f0e6da;
+  --popover: #211930;
+  --popover-foreground: #f0e6da;
+  --primary: #e8a33d;
+  --primary-hover: #d97b6c;
+  --primary-foreground: #1b1426;
+  --secondary: rgba(232, 163, 61, 0.12);
+  --secondary-foreground: #f0e6da;
+  --muted: rgba(240, 230, 218, 0.08);
+  --muted-foreground: #8fb8a0;
+  --accent: #d97b6c;
+  --accent-foreground: #1b1426;
+  --destructive: #e55353;
+  --border: rgba(232, 163, 61, 0.18);
+  --input: rgba(232, 163, 61, 0.15);
+  --ring: #e8a33d;
+}
+
+.dark {
+  --background: #1b1426;
+  --foreground: #f0e6da;
+  --card: rgba(244, 232, 216, 0.05);
+  --card-foreground: #f0e6da;
+  --popover: #211930;
+  --popover-foreground: #f0e6da;
+  --primary: #e8a33d;
+  --primary-hover: #d97b6c;
+  --primary-foreground: #1b1426;
+  --secondary: rgba(232, 163, 61, 0.12);
+  --secondary-foreground: #f0e6da;
+  --muted: rgba(240, 230, 218, 0.08);
+  --muted-foreground: #8fb8a0;
+  --accent: #d97b6c;
+  --accent-foreground: #1b1426;
+  --destructive: #e55353;
+  --border: rgba(232, 163, 61, 0.18);
+  --input: rgba(232, 163, 61, 0.15);
+  --ring: #e8a33d;
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), serif;
+  --font-body: var(--font-instrument), sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* Paper surfaces with 1px inner highlight + 2px soft drop shadow */
+.paper-surface {
+  background: linear-gradient(135deg, rgba(244, 232, 216, 0.07) 0%, rgba(27, 20, 38, 0.4) 100%);
+  border: 1px solid rgba(232, 163, 61, 0.22);
+  box-shadow:
+    inset 0 1px 0 0 rgba(244, 232, 216, 0.15),
+    0 4px 20px -2px rgba(18, 26, 24, 0.6);
+  border-radius: 1.25rem;
+}
+
+.paper-card {
+  background: rgba(27, 20, 38, 0.7);
+  border: 1px solid rgba(232, 163, 61, 0.2);
+  box-shadow:
+    inset 0 1px 0 0 rgba(244, 232, 216, 0.12),
+    0 8px 32px -4px rgba(18, 26, 24, 0.8);
+  border-radius: 1rem;
+}
+
+/* Typography refinements */
+.font-display {
+  font-family: var(--font-fraunces), serif;
+  font-variant-ligatures: common-ligatures contextual;
+}
+
+.font-body {
+  font-family: var(--font-instrument), sans-serif;
+}
+
+.small-caps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+}
+
+/* Page edge vignette */
+.vignette-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  box-shadow: inset 0 0 120px rgba(18, 26, 24, 0.75);
+}
+
+/* Keyframe animations */
+@keyframes hearthBreathe {
+  0%,
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.12) translate(-48%, -52%);
+    opacity: 0.55;
+  }
+}
+
+.animate-hearth-glow {
+  animation: hearthBreathe 6s ease-in-out infinite;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background: linear-gradient(145deg, #1b1426 0%, #121a18 100%);
+    color: var(--foreground);
+    min-h-screen: 100vh;
+  }
+}
