@@ -82,11 +82,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 Enchanted Atelier
               </span>
             </div>
-            <div className="flex items-center gap-4">
-              <span className="hidden font-mono text-xs tracking-wider text-[#8FB8A0] md:inline">
-                ✦ Hearth Spirit & Companion
-              </span>
-            </div>
           </header>
 
           {children}

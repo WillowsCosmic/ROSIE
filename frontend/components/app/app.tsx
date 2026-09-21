@@ -6,6 +6,7 @@ import { useSession } from '@livekit/components-react';
 import { WarningIcon } from '@phosphor-icons/react/dist/ssr';
 import { AgentSessionProvider } from '@/components/agents-ui/agent-session-provider';
 import { StartAudioButton } from '@/components/agents-ui/start-audio-button';
+import { TelemetryDrawer } from '@/components/app/telemetry-drawer';
 import { ViewController } from '@/components/app/view-controller';
 import { Toaster } from '@/components/ui/sonner';
 import { useAgentErrors } from '@/hooks/useAgentErrors';
@@ -41,6 +42,9 @@ export function App({ tokenServerId, tokenEndpoint, agentName, isVideoInputSuppo
   return (
     <AgentSessionProvider session={session}>
       <AppSetup />
+      <div className="fixed top-4 right-6 z-50">
+        <TelemetryDrawer />
+      </div>
       <main className="relative z-10 grid h-svh grid-cols-1 place-content-center">
         <ViewController isVideoInputSupported={isVideoInputSupported} />
       </main>
